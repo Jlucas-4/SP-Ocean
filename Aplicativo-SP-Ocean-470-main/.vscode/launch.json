@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Aplicativo-SP-Ocean-470-main",
+            "cwd": "Aplicativo-SP-Ocean-470-main",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Aplicativo-SP-Ocean-470-main (profile mode)",
+            "cwd": "Aplicativo-SP-Ocean-470-main",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Aplicativo-SP-Ocean-470-main (release mode)",
+            "cwd": "Aplicativo-SP-Ocean-470-main",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
