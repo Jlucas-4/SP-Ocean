@@ -5,6 +5,7 @@ class Atividades {
   late String desc;
   late String img;
 
+
   Atividades(
       {required String nomeInicial,
       required String descInicial,

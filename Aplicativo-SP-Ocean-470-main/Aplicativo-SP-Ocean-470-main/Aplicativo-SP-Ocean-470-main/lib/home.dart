@@ -3,6 +3,8 @@ import 'atividades.dart';
 import 'Vermelha.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,11 +12,11 @@ class HomePage extends StatelessWidget {
         color: const Color(0xFFE9F9FF), // Cor de fundo do body em hexadecimal
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Text(
                 'SP OCEAN',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Poppins',
@@ -29,7 +31,7 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) =>  SPOceanHomePage()),
+                        MaterialPageRoute(builder: (context) =>  const SPOceanHomePage()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -41,7 +43,7 @@ class HomePage extends StatelessWidget {
                     child: Ink(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage('assets/img/praia1.jpg'),
                           fit: BoxFit.cover,
                         ),
@@ -73,7 +75,7 @@ class HomePage extends StatelessWidget {
                     child: Ink(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage('assets/img/pru.jpg'),
                           fit: BoxFit.cover,
                         ),

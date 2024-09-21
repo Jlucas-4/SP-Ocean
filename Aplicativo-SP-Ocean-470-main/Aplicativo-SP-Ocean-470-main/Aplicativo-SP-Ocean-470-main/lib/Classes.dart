@@ -10,13 +10,13 @@ void main() {
       imgInicial: 'image');
 }
 
-class Atividades {
+class Atividadess {
   late String icon;
   late String nome;
   late String desc;
   late String img;
 
-  Atividades(
+  Atividadess(
       {required String nomeInicial,
       required String descInicial,
       required String imgInicial, 
@@ -53,5 +53,14 @@ class Publicacao {
   }) {
     local = locaInicial;
     img = imgInicial;
+  }
+}
+
+class Local {
+  late String nome;
+
+  Local(
+      {required String nomeLocal}) {
+    nome = nomeLocal;
   }
 }

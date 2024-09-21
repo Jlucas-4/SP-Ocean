@@ -1,49 +1,72 @@
 import 'package:flutter/material.dart'; // For PNG icons (if using Image.asset)
+import 'package:flutter_application_sp470/Mongagua.dart';
+import 'package:flutter_application_sp470/Vermelha.dart';
 import 'package:flutter_application_sp470/atividades.dart';
+import 'package:flutter_application_sp470/praias.dart';
 import 'package:flutter_application_sp470/publicacoes.dart';
-import 'Atividade.dart';
-import 'local.dart';
-import 'Mongagua.dart';
-import 'Vermelha.dart';
-import 'praias.dart';
+import 'package:flutter_application_sp470/Atividade.dart';
+import 'Classes.dart';
+
+
+  int _selectedIndex = 0;
+
+  // Corrigindo a declaração da lista
+  final List<Atividadess> atv = [
+    Atividadess(
+        nomeInicial: 'Snorkel',
+        descInicial:
+            "Mergulho com snorkel é nadar perto da superfície da água usando um tubo chamado snorkel para respirar. Você pode ver embaixo d'água sem precisar segurar a respiração.",
+        imgInicial: 'image',
+        iconInicial: 'assets/img/snor.png'),
+    Atividadess(
+        nomeInicial: 'Surf',
+        descInicial: 'sla',
+        imgInicial: 'image',
+        iconInicial: 'assets/img/surf.png'),
+    Atividadess(
+        nomeInicial: 'Asa-Delta',
+        descInicial: 'sla',
+        imgInicial: 'image',
+        iconInicial: 'assets/img/asa.png'),
+    Atividadess(
+        nomeInicial: 'Rapel',
+        descInicial: 'sla',
+        imgInicial: 'image',
+        iconInicial: 'assets/img/rapel.png'),
+    Atividadess(
+        nomeInicial: 'Passeios',
+        descInicial: 'sla',
+        imgInicial: 'assets/img/',
+        iconInicial: 'assets/img/vela.png'),
+  ];
 void main() {
   runApp(const SPOceanApp());
 }
 
 class SPOceanApp extends StatelessWidget {
+
+  final atvs = List<Atividades>;
   const SPOceanApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SurfPage(),
+      home: DescriptionPage(),
     );
   }
 }
 
-class SurfPage extends StatefulWidget {
-  const SurfPage({super.key});
+class DescriptionPage extends StatefulWidget {
+  
+  const DescriptionPage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
   _SPOceanHomePageState createState() => _SPOceanHomePageState();
 }
 
-class _SPOceanHomePageState extends State<SurfPage> {
-  int _selectedIndex = 0;
-
-   List<Atividades> atv = [
-  Atividades( nomeInicial: 'Snorkel', descInicial: "Mergulho com snorkel é nadar perto da superfície da água usando um tubo chamado snorkel para respirar. Você pode ver embaixo d'água sem precisar segurar a respiração.", imgInicial: 'image', iconInicial: 'assets/img/snor.png'),
-  Atividades( nomeInicial: 'Surf', descInicial: 'sla', imgInicial: 'assets/img/surfI.jpg', iconInicial: 'assets/img/surf.png'),
-  Atividades( nomeInicial: 'Asa-Delta', descInicial: 'sla', imgInicial: 'image', iconInicial: 'assets/img/asa.png'),
-  Atividades( nomeInicial: 'Rapel', descInicial: 'Fazer rapel no litoral de São Paulo é uma aventura desafiadora, com paredões que oferecem vistas deslumbrantes do oceano. Locais como a Serra do Mar e a região de Ubatuba combinam a emoção da descida com a beleza natural da mata atlântica e praias. É uma experiência inesquecível para quem busca adrenalina em meio à natureza.', imgInicial: 'image', iconInicial: 'assets/img/rapel.png'),
-  Atividades( nomeInicial: 'Velejando', descInicial: 'Velejar no litoral de São Paulo é uma experiência única, com ventos constantes e belas paisagens ao longo da costa. As águas claras de destinos como Ilhabela e Ubatuba oferecem um cenário perfeito para quem deseja explorar a natureza em meio ao oceano. Além disso, a diversidade de praias e enseadas torna a navegação ainda mais encantadora.', imgInicial: 'assets/img/velejando.jpg', iconInicial: 'assets/img/vela.png')];
-
-  List<Local> local =[
-  Local(nomeLocal: 'Morro do Maluf (Guarujá)'),
-  Local(nomeLocal: 'Pedra do Urubu (Ubatuba)'),
-  Local(nomeLocal: 'Cachoeira do Itu (Ilhabela)') 
-  ];
+class _SPOceanHomePageState extends State<DescriptionPage> {
+  
   // Função para atualizar o índice selecionado na barra de navegação
   void _onItemTapped(int index) {
     setState(() {
@@ -61,7 +84,7 @@ class _SPOceanHomePageState extends State<SurfPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                atv[1].img,
+                atv[_selectedIndex].img,
                 width: double.infinity,
                 height: 300,
                 fit: BoxFit.cover,
@@ -72,15 +95,15 @@ class _SPOceanHomePageState extends State<SurfPage> {
                   const SizedBox(width: 10),
 
                    Text(
-                    atv[3].nome,
-                    style: const TextStyle(
+                    atv[_selectedIndex].nome,
+                    style: TextStyle(
                       color: Color(0xFF005374),
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Image.asset(
-                    atv[3].icon,
+                    atv[_selectedIndex].nome,
                     width: 80.0,
                     height: 80.0,
                   ),
@@ -89,17 +112,21 @@ class _SPOceanHomePageState extends State<SurfPage> {
                   ), // Espaço entre o AppBar e o texto "Atividades"
                 ],
               ),
-               Padding(
-                padding: const EdgeInsets.only(top: 0, left: 25, right: 25.0),
-                child: Text(
-                    atv[3].desc,
-                  style: const TextStyle(
-                    color: Color.fromRGBO(10, 116, 158, 1),
-                    fontSize: 18,
-                  ),
-                  textAlign: TextAlign.justify,
-                ),
-              ),
+             Padding(
+  padding: const EdgeInsets.only(top: 0, left: 25, right: 25.0),
+  child: Column(
+    children: <Widget>[
+      Text(
+        atv[_selectedIndex].nome, // Acessando a descrição corretamente
+        style: const TextStyle(
+          color: Color.fromRGBO(10, 116, 158, 1),
+          fontSize: 18,
+        ),
+        textAlign: TextAlign.justify,
+      ),
+    ],
+  ),
+),
               const SizedBox(
                 height: 20,
               ),
@@ -119,7 +146,7 @@ class _SPOceanHomePageState extends State<SurfPage> {
               const SizedBox(
                 height: 20,
               ),
-              Column(
+     Column(
               children: [
                 Align(
                   alignment: Alignment.centerLeft, // Alinha os botões à esquerda

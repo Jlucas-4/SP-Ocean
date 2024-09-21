@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_sp470/Classes.dart';
 import 'package:flutter_application_sp470/atividades.dart';
-import 'package:flutter_application_sp470/description.dart'; //
+//import 'package:url_launcher/url_launcher.dart';
+//
 
 void main() {
   runApp(const SPOceanApp());
@@ -34,7 +36,16 @@ class _SPOceanHomePageState extends State<PublicacaoPage> {
       _selectedIndex = 0;
     });
   }
-
+/*
+ void abrirUrl() async {
+    const url = 'https://flutterando.com.br/';
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart'; // For PNG icons (if using Image.asset)
 import 'package:flutter_application_sp470/atividades.dart';
 import 'package:flutter_application_sp470/publicacoes.dart';
-import 'Mongagua.dart';
-import 'Vermelha.dart';
-import 'praias.dart';
+import 'Praia.dart';
 import 'Atividade.dart';
-
 void main() {
   runApp(const SPOceanApp());
 }
@@ -16,25 +13,38 @@ class SPOceanApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: AsaPage(),
+      home: VermelhaPage(),
     );
   }
 }
 
-class AsaPage extends StatefulWidget {
-  const AsaPage({super.key});
+class VermelhaPage extends StatefulWidget {
+  const VermelhaPage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
   _SPOceanHomePageState createState() => _SPOceanHomePageState();
 }
 
-class _SPOceanHomePageState extends State<AsaPage> {
+class _SPOceanHomePageState extends State<VermelhaPage> {
   int _selectedIndex = 0;
+    List<Praia> pra = [
+  Praia(
+      nomeInicial: 'Praia Mongaguá',
+      descInicial: 'Essa charmosa praia fica localizada próxima ao centro da cidade e do Centro Cultural da cidade de Mongaguá, litoral de São Paulo, é um verdadeiro espetáculo de fauna e flora pra quem deseja viajar para uma boa praia!',
+      imgInicial: 'assets/img/mongagua.png'),
+  Praia(
+      nomeInicial: 'Praia Prumirim',
+      descInicial: 'Um dos lugares mais bonitos e charmosos de Ubatuba é a Praia do Prumirim. Isto porque a natureza local é considerada muito rica, com areias brancas e um mar agradável, além da grande infraestrutura. Na verdade, é um dos principais acessos à ilha de Prumirim. Confira as ótimas dicas para fazer esta visita imperdível com sua família.',
+      imgInicial: 'assets/img/vermelha.jpg'),
+  Praia(
+      nomeInicial: 'Praia Vermelha',
+      descInicial: 'A Praia Vermelha, localizada no Rio de Janeiro, é um refúgio tranquilo com sua areia dourada e águas cristalinas, oferecendo uma vista deslumbrante do Pão de Açúcar. Este local é ideal para quem busca um ambiente mais sossegado, longe das multidões. Com seu cenário deslumbrante e atmosfera relaxante, é um destino perfeito para relaxar e apreciar a beleza natural da cidade.',
+      imgInicial: 'assets/img/vermelha.jpg')];
 
-  List<Atividades> atv = [
+      List<Atividades> atv = [
   Atividades( nomeInicial: 'Snorkel', descInicial: "Mergulho com snorkel é nadar perto da superfície da água usando um tubo chamado snorkel para respirar. Você pode ver embaixo d'água sem precisar segurar a respiração.", imgInicial: 'image', iconInicial: 'assets/img/snor.png'),
-  Atividades( nomeInicial: 'Surf', descInicial: 'sla', imgInicial: 'image', iconInicial: 'assets/img/surf.png'),
+  Atividades( nomeInicial: 'Surf', descInicial: 'sla', imgInicial: 'assets/img/surfI.jpg', iconInicial: 'assets/img/surf.png'),
   Atividades( nomeInicial: 'Asa-Delta', descInicial: 'sla', imgInicial: 'image', iconInicial: 'assets/img/asa.png'),
   Atividades( nomeInicial: 'Rapel', descInicial: 'Fazer rapel no litoral de São Paulo é uma aventura desafiadora, com paredões que oferecem vistas deslumbrantes do oceano. Locais como a Serra do Mar e a região de Ubatuba combinam a emoção da descida com a beleza natural da mata atlântica e praias. É uma experiência inesquecível para quem busca adrenalina em meio à natureza.', imgInicial: 'image', iconInicial: 'assets/img/rapel.png'),
   Atividades( nomeInicial: 'Velejando', descInicial: 'Velejar no litoral de São Paulo é uma experiência única, com ventos constantes e belas paisagens ao longo da costa. As águas claras de destinos como Ilhabela e Ubatuba oferecem um cenário perfeito para quem deseja explorar a natureza em meio ao oceano. Além disso, a diversidade de praias e enseadas torna a navegação ainda mais encantadora.', imgInicial: 'assets/img/velejando.jpg', iconInicial: 'assets/img/vela.png')];
@@ -56,7 +66,7 @@ class _SPOceanHomePageState extends State<AsaPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/img/snorkels.png',
+                pra[2].img,
                 width: double.infinity,
                 height: 300,
                 fit: BoxFit.cover,
@@ -66,9 +76,9 @@ class _SPOceanHomePageState extends State<AsaPage> {
                 children: [
                   const SizedBox(width: 10),
 
-                  const Text(
-                    'Snorkel',
-                    style: TextStyle(
+                    Text(
+                    pra[2].nome,
+                    style: const TextStyle(
                       color: Color(0xFF005374),
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -84,11 +94,11 @@ class _SPOceanHomePageState extends State<AsaPage> {
                   ), // Espaço entre o AppBar e o texto "Atividades"
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 0, left: 25, right: 25.0),
+               Padding(
+                padding: const EdgeInsets.only(top: 0, left: 25, right: 25.0),
                 child: Text(
-                  'Mergulho com snorkel é nadar perto da superfície da água usando um tubo chamado snorkel para respirar. Você pode ver embaixo d\'água sem precisar segurar a respiração.',
-                  style: TextStyle(
+                  pra[2].desc,
+                 style: const TextStyle(
                     color: Color.fromRGBO(10, 116, 158, 1),
                     fontSize: 18,
                   ),
@@ -102,7 +112,7 @@ class _SPOceanHomePageState extends State<AsaPage> {
                 padding: EdgeInsets.fromLTRB(25, 10.0, 140.0, 0.0),
                 //padding: EdgeInsets.only(top: 20, left: 0, right: 140),
                 child: Text(
-                  'Praias com essa atividade:',
+                  'Atividades que possui:',
                   style: TextStyle(
                     color: Color(0xFF005374),
                     fontSize: 28,
@@ -114,124 +124,88 @@ class _SPOceanHomePageState extends State<AsaPage> {
               const SizedBox(
                 height: 20,
               ),
-             Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft, // Alinha os botões à esquerda
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const PrumirimPage()),
-                              );
-                    },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromARGB(255, 197, 237, 252),
-          padding: const EdgeInsets.all(10.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50.0),
-          ),
-          minimumSize: const Size(200, 50), // Largura e altura mínima
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min, // Ajusta o tamanho do Row ao conteúdo
-          children: [
-            Image.asset(
-              'assets/img/sol.png',
-              width: 30.0,
-              height: 30.0,
-            ),
-            const SizedBox(width: 10.0),
-            const Text(
-              'Praia Prumirim',
-              style: TextStyle(
-                color: Color.fromRGBO(10, 116, 158, 1),
-                fontSize: 20.0,
+              Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 197, 237, 252),
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    padding: const EdgeInsets.all(10.0),
+                    margin: const EdgeInsets.fromLTRB(30, 10.0, 260.0, 0.0),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          atv[1].icon,
+                          width: 30.0,
+                          height: 30.0,
+                        ),
+                        const SizedBox(width: 15.0),
+                         Text(
+                          atv[1].nome,
+                          style: const TextStyle(
+                            color: Color.fromRGBO(10, 116, 158, 1),
+                            fontSize: 20.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10.0),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 197, 237, 252),
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    padding: const EdgeInsets.all(10.0),
+                    margin: const EdgeInsets.fromLTRB(30, 10.0, 260.0, 0.0),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          atv[2].icon,
+                          width: 30.0,
+                          height: 30.0,
+                        ),
+                        const SizedBox(width: 15.0),
+                         Text(
+                          atv[2].nome,
+                          style: const TextStyle(
+                            color: Color.fromRGBO(10, 116, 158, 1),
+                            fontSize: 20.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10.0),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 197, 237, 252),
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    padding: const EdgeInsets.all(10.0),
+                    margin: const EdgeInsets.fromLTRB(30, 10.0, 260.0, 0.0),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          atv[3].icon,
+                          width: 30.0,
+                          height: 30.0,
+                        ),
+                        const SizedBox(width: 15.0),
+                         Text(
+                          atv[3].nome,
+                          style: const TextStyle(
+                            color: Color.fromRGBO(10, 116, 158, 1),
+                            fontSize: 20.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20.0),
+                ],
               ),
-            ),
-          ],
-        ),
-      ),
-      ),
-      const SizedBox(height: 10.0),
-      Align(
-        alignment: Alignment.centerLeft, // Alinha os botões à esquerda
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-                      context,
-                    MaterialPageRoute(builder: (context) => const MongaguaPage()),
-                  );
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromARGB(255, 197, 237, 252),
-          padding: const EdgeInsets.all(10.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50.0),
-          ),
-          minimumSize: const Size(200, 50), // Largura e altura mínima
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min, // Ajusta o tamanho do Row ao conteúdo
-          children: [
-            Image.asset(
-              'assets/img/sol.png',
-              width: 30.0,
-              height: 30.0,
-            ),
-            const SizedBox(width: 10.0),
-            const Text(
-              'Praia Mongaguá',
-              style: TextStyle(
-                color: Color.fromRGBO(10, 116, 158, 1),
-                fontSize: 20.0,
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-    const SizedBox(height: 10.0),
-    Align(
-      alignment: Alignment.centerLeft, // Alinha os botões à esquerda
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const VermelhaPage()),
-                  );
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromARGB(255, 197, 237, 252),
-          padding: const EdgeInsets.all(10.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50.0),
-          ),
-          minimumSize: const Size(200, 50), // Largura e altura mínima
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min, // Ajusta o tamanho do Row ao conteúdo
-          children: [
-            Image.asset(
-              'assets/img/sol.png',
-              width: 30.0,
-              height: 30.0,
-            ),
-            const SizedBox(width: 10.0),
-            const Text(
-              'Praia Vermelha',
-              style: TextStyle(
-                color: Color.fromRGBO(10, 116, 158, 1),
-                fontSize: 20.0,
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-    const SizedBox(height: 20.0),
-  ],
-)
             ],
           ),
         ),

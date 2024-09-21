@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_sp470/asa.dart';
 import 'package:flutter_application_sp470/description.dart';
-import 'package:flutter_application_sp470/eventos.dart';
 import 'package:flutter_application_sp470/publicacoes.dart';
-import 'package:flutter_application_sp470/rapel.dart';
-import 'package:flutter_application_sp470/vela.dart';
-import 'package:flutter_application_sp470/surf.dart';
 import 'Atividade.dart'; // For PNG icons (if using Image.asset)
 
 void main() {
@@ -53,6 +48,7 @@ List<Atividades> atv = [
       backgroundColor: const Color.fromRGBO(233, 249, 255, 1),
       body: Scrollbar(
         child: SingleChildScrollView(
+          
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -103,7 +99,7 @@ List<Atividades> atv = [
                       ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SurfPage()));},
+                              builder: (context) => const DescriptionPage()));},
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
                               const Color.fromRGBO(200, 240, 255, 1),
@@ -138,7 +134,7 @@ List<Atividades> atv = [
                       ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const VelaPage()));
+                              builder: (context) => const DescriptionPage()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
@@ -215,7 +211,7 @@ List<Atividades> atv = [
                       ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const AsaPage()));
+                              builder: (context) => const DescriptionPage()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
@@ -251,7 +247,7 @@ List<Atividades> atv = [
                       ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const RapelPage()));
+                              builder: (context) => const DescriptionPage()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
@@ -286,7 +282,7 @@ List<Atividades> atv = [
                       const SizedBox(height: 30.0),
                       ElevatedButton(
                         onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const EventosPage()));},
+                              builder: (context) => const DescriptionPage()));},
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
                               const Color.fromRGBO(200, 240, 255, 1),
